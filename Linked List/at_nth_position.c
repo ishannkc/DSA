@@ -21,8 +21,9 @@ void insert(int x, int pos){
     for(int i = 0 ; i<pos-2; i++){  //traverse until the pos-1 node, as we need to update the pos-1th node address
         temp2 = temp2->next; //move to next node
     }
-    temp1->next = temp2->next; //link new node to the pos node
-    temp2->next = temp1; //link pos-1 node to new node
+    //since temp1->next is the newly added node's address, and temp2->next is the pos-1th node's address
+    temp1->next = temp2->next; //linking address
+    temp2->next = temp1; //linking pos-1th node to the newly added node
 
 }
 
