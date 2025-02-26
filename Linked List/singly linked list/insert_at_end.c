@@ -15,6 +15,7 @@ void insertEnd(int x){
     temp1->next = NULL;
     //newly created node should be in the beginning
     if(head == NULL){
+        temp1->next = head;
         head = temp1;
         return;
     }
@@ -24,6 +25,7 @@ void insertEnd(int x){
         temp2 = temp2->next;
     }
     //attach new node to last node
+    temp1->next = temp2->next;
     temp2->next = temp1; //since temp2(former end node) is traversed node to the end, former end node's  address needs to be modified with the newly added node
 }
 void print(){
