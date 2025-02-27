@@ -44,8 +44,7 @@ void delete(int n){
     Node* temp1 = head;
     if(n==1){
         if(head==NULL){
-            temp1->next = temp1;
-            head = temp1;
+            printf("List is empty");
             return;
         }
         Node* tail = head;
@@ -72,7 +71,7 @@ int main(){
     insert(7,3);
     print();
 
-    delete(3);
+    delete(1);
     print();
     return 0;
 }

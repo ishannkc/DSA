@@ -7,7 +7,6 @@ typedef struct nodeblock{
 }Node;
 Node* head;
 void insert(int x){
-    //same as insert in head
    Node* temp1 = (Node*)malloc(sizeof(Node));
    temp1->data = x;
    if(head == NULL){
@@ -19,7 +18,6 @@ void insert(int x){
         tail = tail->next;
     }
     temp1->next = head;
-    head = temp1;
     tail->next = temp1;
    }
 }

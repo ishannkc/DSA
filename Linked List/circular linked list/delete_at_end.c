@@ -19,7 +19,6 @@ void insert(int x){
         tail = tail->next;
          }
     temp1->next = head;
-    head = temp1;
     tail->next = temp1;
     }
 }
@@ -37,13 +36,13 @@ void delete(){
         printf("List is empty");
         return;
     }
-    Node* prev = NULL;
+    Node* prev = NULL; //prev is the second last node
     while (temp->next!=head)
     {
         prev= temp;
         temp = temp->next;
     }
-    prev->next = head;
+    prev->next = head; //after last node is removed, second last should point to head
     free(temp);
     
 }
