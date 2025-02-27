@@ -1,27 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
+#include<stdio.h>
 
 typedef struct nodeblock{
     int data;
     struct nodeblock* next;
 }Node;
-
 Node* head;
 void insert(int x){
-    Node* temp = (Node*)malloc(sizeof(Node));
-    temp->data = x;
+    
+    Node* temp1 = (Node*)malloc(sizeof(Node));
+    temp1->data = x;
     if(head==NULL){
-        temp->next = temp;
-        head = temp;
-        return;
+        temp1->next = temp1;
+        head = temp1;
+    } else{
+    Node* tail = head;
+    while(tail->next!=head){
+        tail = tail->next;
+         }
+    temp1->next = head;
+    head = temp1;
+    tail->next = temp1;
     }
-        Node* tail = head;
-        while(tail->next!=head){
-            tail = tail->next;
-    }
-    temp->next = head;
-    head = temp;
-    tail->next = temp;
 }
 void print(){
     Node* temp = head;
@@ -37,24 +37,26 @@ void delete(){
         printf("List is empty");
         return;
     }
-    Node* tail = head;
-    while(tail->next!=head){
-        tail = tail->next;
+    Node* prev = NULL;
+    while (temp->next!=head)
+    {
+        prev= temp;
+        temp = temp->next;
     }
-    head = temp->next;
-    tail->next = head;
+    prev->next = head;
     free(temp);
+    
 }
 int main(){
     head = NULL;
-
-    insert(2);
-    insert(4);
+    insert(1);
+    insert(7);
     insert(6);
+    insert(5);
     print();
 
     delete();
     print();
-    
+
     return 0;
 }
