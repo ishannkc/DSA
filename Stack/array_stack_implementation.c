@@ -1,40 +1,49 @@
 #include <stdio.h>
+#include <stdbool.h>
 #define MAX_SIZE 101
 
 int A[MAX_SIZE];
 int top = -1; //initially stack is empty
 
+bool isFull();
+bool isEmpty();
 void push(int x){
     //overflow control
-    if(top == MAX_SIZE-1){
-        printf("Stack Overflow!\n");
-        return;
+    if(IsFull()){
+        printf("Stack overflow, stack is full\n");
     }
+    else{
     top++;
     A[top] = x; //A[top] is the stack
+    }
 }
 void pop(){
-    if(top == -1){
-        printf("Stack underflow, Nothing to POP!\n");
-        return;
-    }
+    if(isEmpty()){
+        printf("Stack underflow, nothing to pop\n");
+    } else{
     top--;
+    }
 }
 int Top(){
-    if(top==-1){
-        printf("Stack is empty\n");
-        return;
-    }
+    if(isEmpty()){
+        printf("Stack underflow, no top element\n");
+    } else {
     printf("Top element: %d\n ",A[top]);
     return A[top];
+    }
 }
-int IsEmpty(){
+bool isEmpty(){
     if(top==-1){
-        printf("Stack is empty!");
-        return 1;
+        return true;
     } else {
-        printf("Stack is not empty!");
-        return 0;
+        return false;
+    }
+}
+bool isFull(){
+    if(top == MAX_SIZE-1){
+        return true;
+    } else {
+        return false;
     }
 }
 void print(){

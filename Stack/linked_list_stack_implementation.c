@@ -1,15 +1,19 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 //same as insertion/deletion at head of singly linked list
 typedef struct nodeblock{
     int data;
     struct nodeblock* next;
 }Node;
 Node* top; // instead of head, we can use top to represent stack clearly
+
+bool isFull();
+bool isEmpty();
 void push(int x){
     Node* temp = (Node*)malloc(sizeof(Node));
     temp->data = x;
-    if(temp == NULL){   
+    if(isFull()){   
         printf("Stack overflow\n");
         return;
     }
@@ -18,7 +22,7 @@ void push(int x){
 }
 void pop(){
     Node* temp = top;
-    if(top == NULL){ //if list is empty, nothing to delete
+    if(isEmpty()){ //if list is empty, nothing to delete
         printf("Stack underflow!\n");
         return;
     }
@@ -35,30 +39,26 @@ void print(){
     printf("\n");
 }
 int Top(){
-    if(top==NULL){
+    if(isEmpty()){
         printf("Stack is empty\n");
         return;
     }
     printf("Top elemet: %d\n", top->data);
     return top->data;
 }
-int isEmpty(){
+bool isEmpty(){
     if(top==NULL){
-        printf("Stack is empty\n");
-        return 1;
+        return true;
     } else {
-        printf("Stack is not empty\n");
-        return 0;
+        return false;
     }
 }
-int isFull(){
+bool isFull(){
     Node* temp = (Node*)malloc(sizeof(Node));
     if(temp == NULL){
-        printf("Stack is FULL\n");
-        return 1;
+        return true;
     } else {
-        printf("Stack is not full\n");
-        return 0;
+        return false;
     }
 }
 int main(){
