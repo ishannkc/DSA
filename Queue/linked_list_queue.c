@@ -51,7 +51,7 @@ int Rear(){
 }
 void print(){
     Node* temp = front; //traverse from front which is the head
-    while(temp!= rear ){ //from front to rear as rear is the end which holds NULL, i.e temp!=NULL
+    while(temp!= NULL ){ //from front to rear as rear is the end which holds NULL, i.e temp!=NULL
         printf("%d ", temp->data);
         temp = temp->next;
     }
