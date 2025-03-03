@@ -58,7 +58,7 @@ int main(){
     root = Insert(root, 13);
     root = Insert(root, 17);
     root = Insert(root, 25);
-    printf("BST: ");
+    printf("BST: ");    
     print(root);
     printf("\n");
 
