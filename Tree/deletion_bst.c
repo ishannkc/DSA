@@ -36,6 +36,8 @@ void print(Node* root){
 }
 
 Node* FindMin(Node* root){
+    if(root==NULL)
+    return;
     while(root->left!=NULL){ //smallest value is always found in the left nodes, so from right subtree we look towards the left subtrees to find the min element
         root = root->left;
     }
