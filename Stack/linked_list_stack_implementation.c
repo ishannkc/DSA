@@ -47,7 +47,7 @@ int Top(){
     return top->data;
 }
 bool isEmpty(){
-    if(top==NULL){
+    if(top==NULL){  
         return true;
     } else {
         return false;
