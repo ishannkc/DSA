@@ -47,7 +47,7 @@ Node* Delete(Node* root, int x){
     if(root == NULL)
     return ;
     else if(x < root->data){
-        root->left = Delete(root->left,x);
+        root->left = Delete(root->left,x);  
     } else if( x > root->data){
         root->right = Delete(root->right,x);
     } else{ //after recursion, element to be deleted is found in the bst
